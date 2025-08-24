@@ -22,7 +22,12 @@
                 <img src="ic_launcher.webp" alt="LMK Tester" class="app-icon">
                 <span id="nav-logo">LMK Tester</span>
             </div>
-            <div class="nav-links">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
                 <a href="#features" id="nav-features">功能特性</a>
                 <a href="#download" id="nav-download">下载</a>
                 <a href="#about" id="nav-about">关于</a>
@@ -164,7 +169,7 @@
                         <img src="qrcode.png" alt="下载二维码" width="200" height="200">
                     </div>
                 </div>
-                <a href="./release" class="download-link" id="download-link-text">
+                <a href="https://github.com/twiceyuan/lmk-tester-docs/releases/latest" class="download-link" id="download-link-text">
                     访问下载页面
                 </a>
             </div>
@@ -175,21 +180,13 @@
     <section id="about" class="about">
         <div class="section-header">
             <h2 id="about-title">关于项目</h2>
-            <p id="about-subtitle">开源、免费、持续改进</p>
+            <p id="about-subtitle">免费、持续改进</p>
         </div>
         <div class="about-content">
             <div class="about-text">
-                <p id="about-desc-1">LMK Tester 是一个开源项目，帮助开发者验证 Android 应用在内存不足时的恢复能力。通过手动分配内存制造压力，触发系统 LMK 机制回收进程，从而测试应用是否能正确恢复状态和数据。</p>
+                <p id="about-desc-1">LMK Tester 是一个免费工具，帮助开发者验证 Android 应用在内存不足时的恢复能力。通过手动分配内存制造压力，触发系统 LMK 机制回收进程，从而测试应用是否能正确恢复状态和数据。</p>
                 <br>
-                <p id="about-desc-2">项目采用现代化的技术栈开发，包括 Jetpack Compose、MVVM 架构和 Kotlin 语言，确保代码质量和可维护性。</p>
-                <div class="tech-stack" id="tech-stack">
-                    <span class="tech-tag">Kotlin</span>
-                    <span class="tech-tag">Jetpack Compose</span>
-                    <span class="tech-tag">MVVM</span>
-                    <span class="tech-tag">Shizuku</span>
-                    <span class="tech-tag">Material Design 3</span>
-                </div>
-            </div>
+              </div>
         </div>
     </section>
 
@@ -206,18 +203,13 @@
             <div class="footer-section">
                 <h4 id="footer-links-title">链接</h4>
                 <ul id="footer-links-list">
-                    <li><a href="https://github.com/twiceyuan/lmk-tester" target="_blank">源码仓库</a></li>
-                    <li><a href="https://github.com/twiceyuan/lmk-tester-public/releases" target="_blank">下载地址</a></li>
-                    <li><a href="https://github.com/twiceyuan/lmk-tester/issues" target="_blank">反馈问题</a></li>
+                        <li><a href="https://github.com/twiceyuan/lmk-tester-docs/releases/latest" target="_blank">下载地址</a></li>
+                    <li><a href="https://github.com/twiceyuan/lmk-tester-docs/issues" target="_blank">反馈问题</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
-                <h4 id="footer-license-title">许可证</h4>
-                <p id="footer-license-text">MIT License - 开源免费</p>
-            </div>
-        </div>
+          </div>
         <div class="footer-bottom">
-            <p id="footer-copyright">&copy; 2024 LMK Tester. Made with ❤️ by twiceyuan</p>
+            <p id="footer-copyright">&copy; 2024 LMK Tester. Made with ❤️ by <a href="https://yuanis.me" target="_blank" style="color: inherit; text-decoration: none;">twiceYuan</a></p>
         </div>
     </footer>
 

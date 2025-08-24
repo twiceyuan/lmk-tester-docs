@@ -165,50 +165,31 @@ document.querySelectorAll('.feature-card').forEach(card => {
     observer.observe(card);
 });
 
-// Mobile menu toggle (if needed in future)
-const mobileMenuBtn = document.createElement('button');
-mobileMenuBtn.className = 'mobile-menu-btn';
-mobileMenuBtn.innerHTML = `
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M3 12h18M3 6h18M3 18h18"/>
-    </svg>
-`;
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.getElementById('nav-links');
 
-// Add mobile menu functionality for small screens
-function checkScreenSize() {
-    const navLinks = document.querySelector('.nav-links');
-    if (window.innerWidth <= 768) {
-        if (!document.querySelector('.mobile-menu-btn')) {
-            const navContainer = document.querySelector('.nav-container');
-            navContainer.insertBefore(mobileMenuBtn, navLinks);
-            
-            mobileMenuBtn.addEventListener('click', () => {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.right = '0';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.backgroundColor = 'white';
-                navLinks.style.padding = '1rem';
-                navLinks.style.boxShadow = 'var(--shadow-md)';
-            });
-        }
-    } else {
-        if (document.querySelector('.mobile-menu-btn')) {
-            mobileMenuBtn.remove();
-            navLinks.style.display = 'flex';
-            navLinks.style.position = 'static';
-            navLinks.style.flexDirection = 'row';
-            navLinks.style.padding = '0';
-            navLinks.style.boxShadow = 'none';
-        }
+// Toggle mobile menu
+mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenuBtn.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav') && navLinks.classList.contains('active')) {
+        mobileMenuBtn.classList.remove('active');
+        navLinks.classList.remove('active');
     }
-}
-
-// Check screen size on load and resize
-window.addEventListener('load', checkScreenSize);
-window.addEventListener('resize', checkScreenSize);
+});
 
 // Add copy to clipboard for version
 document.addEventListener('DOMContentLoaded', function() {

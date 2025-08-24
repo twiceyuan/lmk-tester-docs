@@ -5,8 +5,8 @@ const content = {
   // 仓库配置
   repo: {
     baseUrl: "https://github.com/twiceyuan/lmk-tester-docs",
-    releasesUrl: "./release",  // 本地 release 目录
-    issuesUrl: "https://github.com/twiceyuan/lmk-tester/issues"
+    releasesUrl: "https://github.com/twiceyuan/lmk-tester-docs/releases/latest",
+    issuesUrl: "https://github.com/twiceyuan/lmk-tester-docs/issues"
   },
   // 元数据
   meta: {
@@ -88,7 +88,7 @@ const content = {
   // 关于项目
   about: {
     title: "关于项目",
-    subtitle: "开源、免费、持续改进",
+    subtitle: "免费、持续改进",
     description: [
       "LMK Tester 是一个免费项目，帮助开发者验证 Android 应用在内存不足时的恢复能力。通过手动分配内存制造压力，触发系统 LMK 机制回收进程，从而测试应用是否能正确恢复状态和数据。"
     ]
@@ -103,13 +103,9 @@ const content = {
     links: {
       title: "链接",
       items: [
-        { text: "下载地址", url: "./release" },
-        { text: "反馈问题", url: "https://github.com/twiceyuan/lmk-tester/issues" }
+        { text: "下载地址", url: "https://github.com/twiceyuan/lmk-tester-docs/releases/latest" },
+        { text: "反馈问题", url: "https://github.com/twiceyuan/lmk-tester-docs/issues" }
       ]
-    },
-    license: {
-      title: "许可证",
-      text: "MIT License - 开源免费"
     },
     copyright: "&copy; 2024 LMK Tester. Made with ❤️ by twiceyuan"
   },
