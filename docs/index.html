@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">LMK Tester - Android 应用恢复测试工具</title>
+    <meta name="description" id="page-description" content="通过模拟内存压力触发 LMK，验证 Android 应用在被系统回收后的恢复能力">
+    <link rel="icon" type="image/webp" href="ic_launcher.webp">
+    <link rel="icon" type="image/png" href="ic_launcher.webp">
+    <link rel="apple-touch-icon" href="ic_launcher.webp">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="content-config.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="ic_launcher.webp" alt="LMK Tester" class="app-icon">
+                <span id="nav-logo">LMK Tester</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" id="nav-features">功能特性</a>
+                <a href="#download" id="nav-download">下载</a>
+                <a href="#about" id="nav-about">关于</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                        <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <a href="https://github.com/twiceyuan/lmk-tester-docs" target="_blank" class="github-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span id="hero-title-line1">验证 Android 应用的</span>
+                <span class="highlight" id="hero-title-highlight">内存恢复</span>
+            </h1>
+            <p class="hero-subtitle" id="hero-subtitle">
+                LMK Tester 是一款测试工具，通过模拟内存压力触发系统 LMK，帮助开发者验证应用的恢复机制
+            </p>
+            <div class="hero-buttons">
+                <a href="#download" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                    <span id="hero-btn-download">立即下载</span>
+                </a>
+                <a href="#" class="btn btn-secondary" id="hero-btn-source-link" onclick="return false;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.3 2.302-8.637-8.635z"/>
+                    </svg>
+                    <span id="hero-btn-source">Play Store (Coming Soon)</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="screenshots/screenshot_1.png" id="app-screenshot" alt="LMK Tester 应用截图" class="app-screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2 id="features-title">核心功能</h2>
+            <p id="features-subtitle">多种功能帮助您测试应用内存表现</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <rect x="8" y="8" width="32" height="32" rx="8" stroke="#3B82F6" stroke-width="2"/>
+                        <path d="M16 20L24 28L32 20" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">灵活的内存分配</h3>
+                <p class="feature-desc">支持 1MB 到 512MB 的内存块分配，精确控制内存压力测试</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="12" stroke="#3B82F6" stroke-width="2"/>
+                        <path d="M24 16V24L28 28" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">实时监控</h3>
+                <p class="feature-desc">实时显示内存使用状况，随时掌握系统内存状态</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <path d="M24 8L32 16L24 24L16 16L24 8Z" fill="#3B82F6"/>
+                        <path d="M24 24L32 32L24 40L16 32L24 24Z" fill="#3B82F6"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">应用监听</h3>
+                <p class="feature-desc">集成 Shizuku 框架，支持监听和启动其他应用，测试多应用场景</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <rect x="12" y="12" width="24" height="24" rx="4" stroke="#3B82F6" stroke-width="2"/>
+                        <circle cx="24" cy="24" r="6" stroke="#3B82F6" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">溢出保护</h3>
+                <p class="feature-desc">检测内存溢出风险，提供提醒和恢复机制</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="section-header">
+            <h2 id="download-title">下载应用</h2>
+            <p id="download-subtitle">支持 Android 7.0+ 系统</p>
+        </div>
+        <div class="download-content">
+            <div class="download-info">
+                <div class="version-info">
+                    <h3 id="version-title">最新版本</h3>
+                    <div class="version" id="version-number">v1.0.1</div>
+                    <p class="release-date" id="version-date">发布于 2024年8月</p>
+                </div>
+                <div class="requirements">
+                    <h3 id="requirements-title">系统要求</h3>
+                    <ul id="requirements-list">
+                        <li>Android 7.0+ (API 24+)</li>
+                        <li>建议安装 Shizuku 以获得完整功能</li>
+                        <li>支持 arm64-v8a、armeabi-v7a</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="download-qr">
+                <div class="qr-placeholder">
+                    <p id="qr-scan-text">扫码下载</p>
+                    <div class="qr-code">
+                        <img src="qrcode.png" alt="下载二维码" width="200" height="200">
+                    </div>
+                </div>
+                <a href="./release" class="download-link" id="download-link-text">
+                    访问下载页面
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-header">
+            <h2 id="about-title">关于项目</h2>
+            <p id="about-subtitle">开源、免费、持续改进</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p id="about-desc-1">LMK Tester 是一个开源项目，帮助开发者验证 Android 应用在内存不足时的恢复能力。通过手动分配内存制造压力，触发系统 LMK 机制回收进程，从而测试应用是否能正确恢复状态和数据。</p>
+                <br>
+                <p id="about-desc-2">项目采用现代化的技术栈开发，包括 Jetpack Compose、MVVM 架构和 Kotlin 语言，确保代码质量和可维护性。</p>
+                <div class="tech-stack" id="tech-stack">
+                    <span class="tech-tag">Kotlin</span>
+                    <span class="tech-tag">Jetpack Compose</span>
+                    <span class="tech-tag">MVVM</span>
+                    <span class="tech-tag">Shizuku</span>
+                    <span class="tech-tag">Material Design 3</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="ic_launcher.webp" alt="LMK Tester" class="app-icon">
+                    <span id="footer-logo-name">LMK Tester</span>
+                </div>
+                <p id="footer-logo-desc">Android 应用恢复测试工具</p>
+            </div>
+            <div class="footer-section">
+                <h4 id="footer-links-title">链接</h4>
+                <ul id="footer-links-list">
+                    <li><a href="https://github.com/twiceyuan/lmk-tester" target="_blank">源码仓库</a></li>
+                    <li><a href="https://github.com/twiceyuan/lmk-tester-public/releases" target="_blank">下载地址</a></li>
+                    <li><a href="https://github.com/twiceyuan/lmk-tester/issues" target="_blank">反馈问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 id="footer-license-title">许可证</h4>
+                <p id="footer-license-text">MIT License - 开源免费</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p id="footer-copyright">&copy; 2024 LMK Tester. Made with ❤️ by twiceyuan</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
